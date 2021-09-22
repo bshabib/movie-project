@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import Movies from "./components/movies.component";
+import Navbar from "./common/navbar.component";
+import { Route, Switch } from 'react-router-dom';
+import Login from './components/login.component';
+import MovieForm from "./components/movie-form.component";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <>
+            <Navbar />
+            <Switch>
+                <Route path='/movies' component={Movies} />
+                <Route path='/login' component={Login} />
+                <Route path='/add-movie' component={MovieForm} />
+                <Route exact path='/' component={Movies} />
+            </Switch>
+        </>
+    );
 }
 
 export default App;
